@@ -1,14 +1,19 @@
-//your JS code here. If required.
-const btn=document.getElementById("btn");
-const output=document.getElementById("output")
+const textInput = document.getElementById('text');
+const delayInput = document.getElementById('delay');
+const outputDiv = document.getElementById('output');
+const submitBtn = document.getElementById('btn');
 
-btn.addEventListener('click',display);
+async function displayTextWithDelay() {
+  const text = textInput.value;
+  const delay = parseInt(delayInput.value);
 
-async function display(){
-	output.textContent = '';
-	const time=document.getElementById("delay").value*1000
-	const text=document.getElementById("text").value
-	setTimeout(()=>{
-		output.innerText=text;
-	},time)
+  if (text && !isNaN(delay)) 
+  {
+    outputDiv.textContent = '';
+    setTimeout(() => {
+      outputDiv.textContent = text;
+    }, delay);
+  }
 }
+
+submitBtn.addEventListener('click', displayTextWithDelay);
