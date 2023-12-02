@@ -5,6 +5,7 @@ const output=document.getElementById("output")
 btn.addEventListener('click',display);
 
 async function display(){
+	output.textContent = '';
 	const time=document.getElementById("delay").value*1000
 	const text=document.getElementById("text").value
 	setTimeout(()=>{
